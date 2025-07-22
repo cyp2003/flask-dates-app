@@ -35,7 +35,11 @@ def result():
         data = json.load(f)
 
     if not data:
-        return "尚無資料"
+    return """
+    <h2>目前還沒有人填寫喔！</h2>
+    <a href='/'>回主畫面</a>
+    """
+
 
     all_sets = [set(dates) for dates in data.values()]
     common_dates = set.intersection(*all_sets) if all_sets else set()
