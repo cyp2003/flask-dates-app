@@ -26,8 +26,10 @@ def index():
             json.dump(data, f)
 
         return redirect('/result')
-
-    return render_template('index.html', dates=DATE_OPTIONS)
+    with open(DATA_FILE, 'r') as f:
+        data = json.load(f)
+    count = len(data)
+    return render_template('index.html', dates=DATE_OPTIONS,count=count)
 
 @app.route('/result')
 def result():
