@@ -52,9 +52,7 @@ def result():
     <a href="/">回去填表</a>
     """
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+
 @app.route('/reset')
 def reset():
     with open(DATA_FILE, 'w') as f:
@@ -63,3 +61,6 @@ def reset():
     <h2>資料已清除 ✅</h2>
     <a href='/'>回主畫面</a>
     """
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
