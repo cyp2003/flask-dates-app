@@ -5,7 +5,11 @@ import os
 app = Flask(__name__)
 
 DATA_FILE = 'data.json'
-DATE_OPTIONS = ["2025-07-25", "2025-07-26", "2025-07-27", "2025-07-28", "2025-07-29"]
+def load_dates():
+    with open('dates.txt', 'r') as f:
+        return [line.strip() for line in f if line.strip()]
+
+DATE_OPTIONS = load_dates()
 
 if not os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'w') as f:
